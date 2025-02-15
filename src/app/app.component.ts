@@ -1,12 +1,22 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, signal } from '@angular/core';
+import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [HomeComponent, NavbarComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'loopify';
+  title = 'Loopify';
+  counter = signal(0);
+
+  raiseCounter() {
+    this.counter.set(this.counter() + 1);
+  }
+
+  lowerCounter() {
+    this.counter.set(this.counter() - 1);
+  }
 }
