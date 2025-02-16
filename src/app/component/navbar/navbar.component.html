@@ -1,5 +1,18 @@
 <p-menubar>
   <ng-template #start>
-    <span>Loopify</span>
+    <span class="cursor-pointer hover:text-gray-300" routerLink="/"
+      >Loopify</span
+    >
+  </ng-template>
+
+  <ng-template #end>
+    <input
+      type="text"
+      class="h-[70%]"
+      size="small"
+      pInputText
+      [(ngModel)]="searchInput"
+    />
+    <p-avatar image="/profile-final.webp" size="normal" shape="circle" />
   </ng-template>
 </p-menubar>

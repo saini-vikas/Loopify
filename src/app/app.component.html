@@ -1,12 +1,4 @@
 <div class="flex flex-col px-4 pt-1">
   <app-navbar></app-navbar>
-  <h4>{{ title }}</h4>
-  <p-button
-    severity="info"
-    class=""
-    (click)="raiseCounter()"
-    label="Increase"
-  />
-  <p-button (click)="lowerCounter()">Decrease</p-button>
-  <app-home [message]="counter()" />
+  <router-outlet></router-outlet>
 </div>
