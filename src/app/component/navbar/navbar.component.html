@@ -13,14 +13,18 @@
   </ng-template>
 
   <ng-template #end>
-    <div class="flex items-center gap-2">
-      <input
-        type="text"
-        class="h-[70%]"
-        size="small"
-        pInputText
-        [(ngModel)]="searchInput"
-      />
+    <div class="flex items-center w-full">
+      <div class="flex items-center justify-center gap-3 px-28">
+        <input
+          type="text"
+          class="h-[70%] w-[400px] self-center !rounded-2xl !text-medium"
+          size="small"
+          placeholder="Search songs, playlists, artist and more..."
+          pInputText
+          [(ngModel)]="searchInput"
+        />
+        <p-button size="small" label="Search"></p-button>
+      </div>
       <button
         pRipple
         class="relative overflow-hidden w-full border-0 bg-transparent flex items-start hover:bg-surface-100 dark:hover:bg-surface-800 rounded-none cursor-pointer transition-colors duration-200"
@@ -36,7 +40,7 @@
         #menu
         [model]="profileMenu()"
         [popup]="true"
-        styleClass="!w-12 h-fit px-2 py-2"
+        styleClass="px-2 py-2"
       >
         <ng-template #start>
           <i class="pi pi-user" style="font-size: 2rem"></i>

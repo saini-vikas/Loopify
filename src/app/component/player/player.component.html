@@ -1,0 +1,33 @@
+<div
+  class="flex fixed bottom-0 left-0 justify-center items-center w-full h-[18%] border-t-1"
+>
+  <div>
+    <!-- Album Artwork -->
+    <img [src]="albumArt()" class="h-[100px] w-[100px]" />
+  </div>
+  <!-- Song Title -->
+  <audio #audioElement (timeupdate)="updateProgress()">
+    <source src="assets/music/song.mp3" type="audio/mp3" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Play/Pause Button -->
+  <button (click)="togglePlayPause()">
+    {{ isPlaying() ? "Pause ⏸️" : "Play ▶️" }}
+  </button>
+
+  <!-- Progress Bar -->
+  <input type="range" [value]="" [max]="" />
+
+  <!-- Volume Control -->
+  <input
+    type="range"
+    min="0"
+    max="1"
+    step="0.1"
+    [value]="volume()"
+    (input)="changeVolume($event)"
+  />
+
+  <span>sec</span>
+</div>
