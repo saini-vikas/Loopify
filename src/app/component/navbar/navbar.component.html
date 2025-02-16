@@ -1,18 +1,62 @@
 <p-menubar>
   <ng-template #start>
-    <span class="cursor-pointer hover:text-gray-300" routerLink="/"
+    <span
+      class="cursor-pointer hover:text-black dark:hover:text-gray-300 font-extrabold"
+      routerLink="/"
       >Loopify</span
     >
   </ng-template>
+  <ng-template>
+    <div>
+      <p>Vikas</p>
+    </div>
+  </ng-template>
 
   <ng-template #end>
-    <input
-      type="text"
-      class="h-[70%]"
-      size="small"
-      pInputText
-      [(ngModel)]="searchInput"
-    />
-    <p-avatar image="/profile-final.webp" size="normal" shape="circle" />
+    <div class="flex items-center gap-2">
+      <input
+        type="text"
+        class="h-[70%]"
+        size="small"
+        pInputText
+        [(ngModel)]="searchInput"
+      />
+      <button
+        pRipple
+        class="relative overflow-hidden w-full border-0 bg-transparent flex items-start hover:bg-surface-100 dark:hover:bg-surface-800 rounded-none cursor-pointer transition-colors duration-200"
+      >
+        <p-avatar
+          image="/profile-final.webp"
+          (click)="menu.toggle($event)"
+          size="normal"
+          shape="circle"
+        />
+      </button>
+      <p-menu
+        #menu
+        [model]="profileMenu()"
+        [popup]="true"
+        styleClass="!w-12 h-fit px-2 py-2"
+      >
+        <ng-template #start>
+          <i class="pi pi-user" style="font-size: 2rem"></i>
+          <span class="font-bold px-1">{{ activeUser().toUpperCase() }}</span>
+        </ng-template>
+        <ng-template #item let-item>
+          <div class="w-full gap-1 px-2">
+            <span
+              class="w-full text-sm cursor-pointer"
+              routerLink="{{ item.link }}"
+              >{{ item.title }}</span
+            >
+          </div>
+        </ng-template>
+        <ng-template #end>
+          <div class="hover:bg-red-100 rounded-xs cursor-pointer px-3">
+            <span pRipple class="text-sm cursor-pointer">Logout</span>
+          </div>
+        </ng-template>
+      </p-menu>
+    </div>
   </ng-template>
 </p-menubar>
