@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
-
+import { MenubarModule } from 'primeng/menubar';
 @Component({
   selector: 'app-navbar',
-  imports: [],
+  imports: [MenubarModule],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrl: './navbar.component.css',
 })
-export class NavbarComponent {
-
-}
+export class NavbarComponent {}
